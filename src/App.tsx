@@ -55,14 +55,14 @@ const iterate_board = (board: number[][]) => {
 
       const alive = row_copy[col];
 
-      sum += board[row - 1] ? board[row - 1][col - 1] : 0;
-      sum += board[row - 1] ? board[row - 1][col] : 0;
-      sum += board[row - 1] ? board[row - 1][col + 1] : 0;
-      sum += board[row] ? board[row][col - 1] : 0;
-      sum += board[row] ? board[row][col + 1] : 0;
-      sum += board[row + 1] ? board[row + 1][col - 1] : 0;
-      sum += board[row + 1] ? board[row + 1][col] : 0;
-      sum += board[row + 1] ? board[row + 1][col + 1] : 0;
+      sum += board[row - 1] ? board[row - 1][col - 1] || 0 : 0;
+      sum += board[row - 1] ? board[row - 1][col] || 0 : 0;
+      sum += board[row - 1] ? board[row - 1][col + 1] || 0 : 0;
+      sum += board[row] ? board[row][col - 1] || 0 : 0;
+      sum += board[row] ? board[row][col + 1] || 0 : 0;
+      sum += board[row + 1] ? board[row + 1][col - 1] || 0 : 0;
+      sum += board[row + 1] ? board[row + 1][col] || 0 : 0;
+      sum += board[row + 1] ? board[row + 1][col + 1] || 0 : 0;
 
       // Any live cell with two or three live neighbours survives.
       if (alive && sum === 2) row_copy[col] = 1;
