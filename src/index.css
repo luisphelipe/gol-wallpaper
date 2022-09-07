@@ -15,3 +15,16 @@ code {
 * {
   box-sizing: border-box;
 }
+
+@keyframes fade {
+  0% {
+    background-color: #000;
+  }
+  100% {
+    background-color: #bbb;
+  }
+}
+
+.cell-alive {
+  animation: fade 5s !important;
+}

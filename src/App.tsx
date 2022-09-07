@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 const ROWS = 40;
 const COLUMNS = 80;
-const ALIVE_COLOR = "black";
+// const ALIVE_COLOR = "black";
+const ALIVE_COLOR = "#bbb";
 // const ALIVE_COLOR = "#ccc";
 const DEAD_COLOR = "white";
 const BACKGROUND_COLOR = "white";
@@ -15,7 +16,7 @@ const default_board = Array(ROWS)
 const Cell = (props: any) => {
   return (
     <div
-      className="cell"
+      className={props.active ? "cell-alive" : "cell"}
       style={{
         width: "100%",
         height: "100%",
