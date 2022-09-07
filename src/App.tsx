@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-const ROWS = 40;
-const COLUMNS = 80;
+const CHANCE = 10;
+const ROWS = 50;
+const COLUMNS = 100;
 // const ALIVE_COLOR = "black";
-const ALIVE_COLOR = "#bbb";
-// const ALIVE_COLOR = "#ccc";
-const DEAD_COLOR = "white";
+const ALIVE_COLOR = "#aaa";
+const DEAD_COLOR = "#eee";
 const BACKGROUND_COLOR = "white";
 const ITERATION_DELAY = 1000; // ms
+const MAX_ITERATIONS = 60;
 
 const default_board = Array(ROWS)
   .fill(0)
@@ -16,18 +17,19 @@ const default_board = Array(ROWS)
 const Cell = (props: any) => {
   return (
     <div
-      className={props.active ? "cell-alive" : "cell"}
+      className={props.active ? "cell-alive" : "cell-dead"}
       style={{
         width: "100%",
         height: "100%",
-        borderRadius: "50%",
+        borderRadius: "5px",
+        border: "1px solid white",
         backgroundColor: props.active ? ALIVE_COLOR : DEAD_COLOR,
       }}
     />
   );
 };
 
-const generate_random = (board: number[][], chance = 10) => {
+const generate_random = (board: number[][], chance = CHANCE) => {
   const board_copy = [];
 
   for (const row of board) {
@@ -84,7 +86,7 @@ function App() {
   const iterations = useRef(0);
 
   const updateBoard = () => {
-    if (iterations.current % 100 === 0) {
+    if (iterations.current % MAX_ITERATIONS === 0) {
       setBoard(generate_random(board));
     } else {
       setBoard((old) => iterate_board(old));

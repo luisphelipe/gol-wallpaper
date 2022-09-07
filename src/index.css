@@ -18,10 +18,13 @@ code {
 
 @keyframes fade {
   0% {
-    background-color: #000;
+    background-color: red;
+  }
+  20% {
+    background-color: black;
   }
   100% {
-    background-color: #bbb;
+    background-color: #aaa;
   }
 }
 
