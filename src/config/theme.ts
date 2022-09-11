@@ -3,6 +3,8 @@ import {
   ALIVE_COLOR,
   ALIVE_STABLE_COLOR,
   BACKGROUND_COLOR,
+  BORDER_RADIUS,
+  BORDER_WIDTH,
   DEAD_COLOR,
   ITERATION_DELAY,
 } from "./constants";
@@ -16,6 +18,8 @@ const theme = {
     background: BACKGROUND_COLOR,
   },
   iteration_delay: ITERATION_DELAY,
+  border_radius: BORDER_RADIUS,
+  border_width: BORDER_WIDTH,
 };
 
 export default theme;

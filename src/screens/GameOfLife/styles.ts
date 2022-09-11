@@ -4,16 +4,26 @@ interface BoardProps {
   background_color: string;
 }
 
-export const Board = styled.div<BoardProps>`
+export const LayoutContainer = styled.div`
   width: 100vw;
   height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Board = styled.div<BoardProps>`
+  height: 100%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const BoardRow = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -50,7 +60,9 @@ const cell_dead = css`
 export const Cell = styled.div<CellProps>`
   width: 100%;
   height: 100%;
-  border-radius: 5px;
-  border: 1px solid white;
-  ${(props) => (props.active ? cell_alive : cell_dead)};
+  border-radius: ${(props) => props.theme.border_radius};
+  border: ${(props) => props.theme.border_width} solid
+    ${(props) => props.theme.colors.dead};
+
+  ${(props) => (props.active ? cell_alive : cell_dead)}
 `;
